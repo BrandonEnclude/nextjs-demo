@@ -9,6 +9,8 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+    - name: Check out code
+      uses: actions/checkout@v2
     - name: Login to container registry
       uses: azure/docker-login@v1
       with:
