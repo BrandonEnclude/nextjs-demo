@@ -17,5 +17,5 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
     - name: Push to container registry
       run: |
-        docker build . -t enccontainer.azurecr.io/nextjs-blog:${{ github.sha }}
-        docker push enccontainer.azurecr.io/nextjs-blog:${{ github.sha }}
+        docker build . -t enccontainer.azurecr.io/nextjs-blog:latest
+        docker push enccontainer.azurecr.io/nextjs-blog:latest
