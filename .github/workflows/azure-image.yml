@@ -1,15 +1,20 @@
 name: Azure Container Registry Login
 on:
   push:
-    branches:
-      - main
-      
-uses: azure/docker-login@v1
-with:
-  login-server: enccontainer.azurecr.io
-  username: ${{ secrets.REGISTRY_USERNAME }}
-  password: ${{ secrets.REGISTRY_PASSWORD }}
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
-run: |
-  docker build . -t enccontainer.azurecr.io/nextjs-blog:latest
-  docker push enccontainer.azurecr.io/nextjs-blog:latest
+jobs:
+    build:
+      steps:
+      - uses: azure/docker-login@v1
+      - name: Push to container registry
+        with:
+          login-server: enccontainer.azurecr.io
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
+      - run: |
+        docker build . -t enccontainer.azurecr.io/nextjs-blog:latest
+        docker push enccontainer.azurecr.io/nextjs-blog:latest
