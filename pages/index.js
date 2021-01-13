@@ -12,7 +12,7 @@ export default function Home() {
         <h1 className="title">
           WELCOME to <a href="https://nextjs.org">Next.js!</a>
         </h1>
-        <h2>This is the ACTIONS test</h2>
+        <h2>This is the ACTIONS Unit Tests test</h2>
 
         <p className="description">
           Get started by editing <code>pages/index.js</code>
