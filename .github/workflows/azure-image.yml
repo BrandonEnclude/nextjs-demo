@@ -8,8 +8,7 @@ on:
 jobs:
     build:
       steps:
-      - name: Login to container registry
-        uses: azure/docker-login@v1
+      - uses: azure/docker-login@v1
         with:
           login-server: enccontainer.azurecr.io
           username: ${{ secrets.REGISTRY_USERNAME }}
