@@ -15,6 +15,6 @@ jobs:
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
-      - run: |
+      - run:
         docker build . -t enccontainer.azurecr.io/nextjs-blog:latest
         docker push enccontainer.azurecr.io/nextjs-blog:latest
