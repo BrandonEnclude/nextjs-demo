@@ -14,6 +14,5 @@ jobs:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
     - name: Push to container registry
-    - run: |
-        docker build . -t contoso.azurecr.io/k8sdemo:${{ github.sha }}
-        docker push contoso.azurecr.io/k8sdemo:${{ github.sha }}
+    - run: docker build . -t contoso.azurecr.io/k8sdemo:${{ github.sha }}
+    - run: docker push contoso.azurecr.io/k8sdemo:${{ github.sha }}
