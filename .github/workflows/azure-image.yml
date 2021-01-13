@@ -6,14 +6,14 @@ on:
     branches: [ main ]
 
 jobs:
-    build:
-      steps:
-      - uses: azure/docker-login@v1
-        with:
-          login-server: enccontainer.azurecr.io
-          username: ${{ secrets.REGISTRY_USERNAME }}
-          password: ${{ secrets.REGISTRY_PASSWORD }}
-      - name: Push to container registry
-      - run: |
+  build:
+    steps:
+    - uses: azure/docker-login@v1
+      with:
+        login-server: enccontainer.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+    - name: Push to container registry
+    - run: |
         docker build . -t contoso.azurecr.io/k8sdemo:${{ github.sha }}
         docker push contoso.azurecr.io/k8sdemo:${{ github.sha }}
