@@ -9,9 +9,15 @@
     "test": "jest"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.1.2",
+    "@stripe/stripe-js": "^1.11.0",
+    "micro": "^9.3.4",
     "next": "^10.0.0",
+    "nookies": "^2.5.0",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-cookie": "^4.0.3",
+    "react-dom": "17.0.1",
+    "stripe": "^8.131.0"
   },
   "devDependencies": {
     "@testing-library/dom": "^7.29.4",
