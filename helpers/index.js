@@ -67,6 +67,7 @@ export async function updateWallet(access_token, email, amount) {
   })
   const userDetailsRes = await getRes.json()
   const userDetails = userDetailsRes.records[0]
+  const updatedAmount = userDetails.Wallet_Amount__c ? userDetails.Wallet_Amount__c + amount : amount
 
   const patchRes = await fetch(`${process.env.SF_URL}/services/data/v48.0/sobjects/User/${userDetails.Id}`, {
     method: 'patch',
@@ -74,7 +75,7 @@ export async function updateWallet(access_token, email, amount) {
       'Authorization': `Bearer ${access_token}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({Wallet_Amount__c: userDetails.Wallet_Amount__c + amount})
+    body: JSON.stringify({Wallet_Amount__c: updatedAmount})
   })
   return patchRes
 }

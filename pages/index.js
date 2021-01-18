@@ -1,8 +1,7 @@
 import Head from 'next/head'
 
-export default function Home() {
+export default function Home({redirectUri}) {
   const clientId = '3MVG95G8WxiwV5Ptib1Zg_oPWxuJAgNilF16FmayvE8pOKjifuU76CwnwjBI0zpFGSFP2c6KmmOTfJtjBulGs'
-  const redirectUri = 'https://enc-demo.azurewebsites.net/callback'
   const loginUrl = `https://bd1887-developer-edition.eu32.force.com/nextdemo/services/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code`
   
   return (
@@ -12,8 +11,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>Next Demo</h1>
-      <h3>A Simple Demo of Next JS and Salesforce integration on Azure.</h3>
+      <h3>Redirect URI: {redirectUri}</h3>
       <a href={loginUrl} className="button">Log in</a>
     </>
   )
+}
+
+export async function getStaticProps(context) {
+  return {
+    props: {redirectUri: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/callback' : process.env.REDIRECT_URI}
+  }
 }

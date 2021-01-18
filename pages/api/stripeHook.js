@@ -18,10 +18,10 @@ export default async function handler(req, res) {
             res.status(400).send(`Webhook Error: ${err.message}`)
             return;
         }
-        if (event.type === "payment_intent.succeeded") {
+        if (event.type === "charge.succeeded") {
             const payment = event.data.object
             const { access_token } = await getAdminToken()
-            await updateWallet(access_token, payment.receipt_email, payment.amount_received / 100)
+            await updateWallet(access_token, payment.receipt_email, payment.amount / 100)
             res.status(200)
             // Handle successful payment
         } else {

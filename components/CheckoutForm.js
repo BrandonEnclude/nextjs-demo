@@ -24,7 +24,7 @@ const CheckoutForm = ({ paymentIntent, router }) => {
         if (error) throw new Error(error.message);
 
         if (status === "succeeded") {
-            destroyCookie(null, 'paymentIntentId')
+            destroyCookie({}, 'paymentIntentId')
             alert('Payment made!')
             router.push('/profile/wallet')
         }
