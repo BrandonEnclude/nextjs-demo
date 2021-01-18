@@ -6,6 +6,12 @@ jobs:
     steps:
     - name: 'Checkout Github Action' 
       uses: actions/checkout@master
+
+    - name: 'Install NPM Modules'
+      run: npm install
+
+    - name: 'Run Tests'
+      run: npm run test
     
     - name: 'Login via Azure CLI'
       uses: azure/login@v1
