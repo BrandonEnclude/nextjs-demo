@@ -19,6 +19,6 @@ export default function Home({redirectUri}) {
 
 export async function getStaticProps(context) {
   return {
-    props: {redirectUri: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/callback' : process.env.REDIRECT_URI}
+    props: {redirectUri: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/callback' : 'https://enc-demo.azurewebsites.net/callback'}
   }
 }
