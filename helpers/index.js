@@ -66,6 +66,7 @@ export async function updateWallet(access_token, email, amount) {
     }
   })
   const userDetailsRes = await getRes.json()
+  console.log(userDetailsRes)
   const userDetails = userDetailsRes.records[0]
   const updatedAmount = userDetails.Wallet_Amount__c ? userDetails.Wallet_Amount__c + amount : amount
 
