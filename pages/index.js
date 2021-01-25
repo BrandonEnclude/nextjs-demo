@@ -11,6 +11,7 @@ export default function Home({redirectUri}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>Next Demo</h1>
+      <h3>CI / CD Test</h3>
       <h3>Redirect URI: {redirectUri}</h3>
       <a href={loginUrl} className="button">Log in</a>
     </>
